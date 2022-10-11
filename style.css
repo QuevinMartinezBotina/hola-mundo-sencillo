@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #eee;
+}
+
+.animacion {
+  width: 21ch;
+  border-right: 0.1em solid black;
+  font-family: monospace;
+  font-size: 4em;
+  animation: type 1.5s steps(10), writer 2s infinite alternate, delete 0.5s steps(5) 2.5s, type2 1s steps(4) 3s forwards, type3 3s steps(22, end) 6s forwards;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+   text-shadow: 2px 6px 8px grey;
+}
+
+.animacion::before { 
+    content: "Hola Mundo!";
+    animation: type2 1s steps(4) 3s forwards, type3 3s steps(22, end) 6s forwards;
+}
+
+@keyframes type {
+  from {
+    width: 0;
+  }
+  to {
+    width: 10ch;
+  }
+}
+
+@keyframes type2 {
+  from {
+    width: 0ch;
+    content: "Me llamo Santi"
+  }
+  to {
+    width: 15ch;
+    content: "Me llamo Santi"
+  }
+}
+
+@keyframes type3 {
+  from {
+    width: 0ch;
+    content: "Bienvenido!"
+  }
+  to {
+    width: 15ch;
+    content: "Bienvenido!"
+  }
+}
+
+@keyframes writer {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes delete {
+  from {
+    width: 21ch;
+  }
+  to {
+    width: 16ch;
+  }
+}
